@@ -40,7 +40,7 @@ Here are 3 models trained for 100 epochs on FashionMNIST dataset, you can downlo
 |**Quantized**|||
 | [```resnet18_quantized.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/resnet18_quantized.pth) | [```mobilenet_v3_small__quantized.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/mobilenet_v3_small_quantized.pth) | [```custom_quantized.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/custom_quantized.pth) |
 
-After downloading, move them to `/weights` directory.
+After downloading, move them to [`/weights`](./weights/) directory.
 
 </details>
 
@@ -332,7 +332,7 @@ The trained model is evaluated on FashionMNIST's val set, and the results are re
 The ```pth``` checkpoint is exported in mainly two formats:
 1. [TorchScript](https://pytorch.org/docs/stable/jit.html), which is an intermediate representation of a PyTorch model that can be run in Python as well as in a high performance environment like C++.  
 
-2.  [onnx](https://onnx.ai/onnx/index.html), which is an intermediary machine learning framework used to convert between different machine learning frameworks. 
+2.  [ONNX](https://onnx.ai/onnx/index.html), which is an intermediary machine learning framework used to convert between different machine learning frameworks. 
 
 By converting your PyTorch model to TorchScript, you can deploy it in a wide range of production environments, including mobile devices, web servers, and cloud-based platforms. While, converting a PyTorch model to ONNX can make it more portable and easier to deploy across a range of platforms and hardware devices.
 
@@ -369,7 +369,7 @@ The table below shows that quantization resulted in a noticable increase in infe
 
 </center>
 
-The full results in ```json``` files in `/results/accuracy` directory.
+The full results in ```json``` files in [`/results/accuracy`](./results/accuracy/) directory.
 
 
 ## Complexity Analysis
@@ -411,7 +411,7 @@ Analyzing complexity results, which is dumped to txt files in [`/results/complex
 
     ** Note on FashionCNN, the number of Params is dominated by Linear layers in contrast of other networks, this is because the small number of Conv2d layers used, it uses only 3 conv layers and 2 linear ones.
 
-The full tables and numbers are reported in the `/results/complexity` directory.
+The full tables and numbers are reported in the [`/results/complexity`](./results/complexity) directory.
 
 ## Receptive Field
 
@@ -460,7 +460,7 @@ from torchscan import summary
 mod = nn.Conv2d(3, 8, 3)
 summary(mod, (3, 224, 224), receptive_field=True)
 ```
-We can pass an entire PyTorch model like in ```complexity_torchscan.py``` (sample outputs in `/results/complexity` directory), we can also retrieve module information for an expected input tensor shape:
+We can pass an entire PyTorch model like in [`complexity_torchscan.py`](./complexity_torchscan.py) (sample outputs in [`/results/complexity`](./results/complexity) directory), we can also retrieve module information for an expected input tensor shape:
 
 ```Python
 import torch.nn as nn
