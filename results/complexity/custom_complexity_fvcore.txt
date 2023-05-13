@@ -1,0 +1,38 @@
+1. FLOP count table (max depth = 4):
+
+| module                 | #parameters or shape   | #flops    |
+|:-----------------------|:-----------------------|:----------|
+| model                  | 12.872M                | 0.153G    |
+|  layer1                |  0.48K                 |  23.282M  |
+|   layer1.0             |   0.448K               |   21.676M |
+|    layer1.0.weight     |    (16, 3, 3, 3)       |           |
+|    layer1.0.bias       |    (16,)               |           |
+|   layer1.1             |   32                   |   1.606M  |
+|    layer1.1.weight     |    (16,)               |           |
+|    layer1.1.bias       |    (16,)               |           |
+|  layer2                |  4.704K                |  58.606M  |
+|   layer2.0             |   4.64K                |   57.803M |
+|    layer2.0.weight     |    (32, 16, 3, 3)      |           |
+|    layer2.0.bias       |    (32,)               |           |
+|   layer2.1             |   64                   |   0.803M  |
+|    layer2.1.weight     |    (32,)               |           |
+|    layer2.1.bias       |    (32,)               |           |
+|  layer3                |  18.624K               |  58.204M  |
+|   layer3.0             |   18.496K              |   57.803M |
+|    layer3.0.weight     |    (64, 32, 3, 3)      |           |
+|    layer3.0.bias       |    (64,)               |           |
+|   layer3.1             |   0.128K               |   0.401M  |
+|    layer3.1.weight     |    (64,)               |           |
+|    layer3.1.bias       |    (64,)               |           |
+|  classifier            |  12.848M               |  12.848M  |
+|   classifier.0         |   12.845M              |   12.845M |
+|    classifier.0.weight |    (256, 50176)        |           |
+|    classifier.0.bias   |    (256,)              |           |
+|   classifier.3         |   2.57K                |   2.56K   |
+|    classifier.3.weight |    (10, 256)           |           |
+|    classifier.3.bias   |    (10,)               |           |
+
+2. Total FLOP count: 152939008
+
+3. FLOP count by operator:
+Counter({'conv': 137281536, 'linear': 12847616, 'batch_norm': 2809856})

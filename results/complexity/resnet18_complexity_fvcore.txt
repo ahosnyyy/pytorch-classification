@@ -1,0 +1,123 @@
+1. FLOP count table (max depth = 4):
+
+| module                    | #parameters or shape   | #flops      |
+|:--------------------------|:-----------------------|:------------|
+| model                     | 11.31M                 | 1.819G      |
+|  conv1                    |  9.408K                |  0.118G     |
+|   conv1.weight            |   (64, 3, 7, 7)        |             |
+|  bn1                      |  0.128K                |  1.606M     |
+|   bn1.weight              |   (64,)                |             |
+|   bn1.bias                |   (64,)                |             |
+|  layer1                   |  0.148M                |  0.464G     |
+|   layer1.0                |   73.984K              |   0.232G    |
+|    layer1.0.conv1         |    36.864K             |    0.116G   |
+|     layer1.0.conv1.weight |     (64, 64, 3, 3)     |             |
+|    layer1.0.bn1           |    0.128K              |    0.401M   |
+|     layer1.0.bn1.weight   |     (64,)              |             |
+|     layer1.0.bn1.bias     |     (64,)              |             |
+|    layer1.0.conv2         |    36.864K             |    0.116G   |
+|     layer1.0.conv2.weight |     (64, 64, 3, 3)     |             |
+|    layer1.0.bn2           |    0.128K              |    0.401M   |
+|     layer1.0.bn2.weight   |     (64,)              |             |
+|     layer1.0.bn2.bias     |     (64,)              |             |
+|   layer1.1                |   73.984K              |   0.232G    |
+|    layer1.1.conv1         |    36.864K             |    0.116G   |
+|     layer1.1.conv1.weight |     (64, 64, 3, 3)     |             |
+|    layer1.1.bn1           |    0.128K              |    0.401M   |
+|     layer1.1.bn1.weight   |     (64,)              |             |
+|     layer1.1.bn1.bias     |     (64,)              |             |
+|    layer1.1.conv2         |    36.864K             |    0.116G   |
+|     layer1.1.conv2.weight |     (64, 64, 3, 3)     |             |
+|    layer1.1.bn2           |    0.128K              |    0.401M   |
+|     layer1.1.bn2.weight   |     (64,)              |             |
+|     layer1.1.bn2.bias     |     (64,)              |             |
+|  layer2                   |  0.526M                |  0.412G     |
+|   layer2.0                |   0.23M                |   0.18G     |
+|    layer2.0.conv1         |    73.728K             |    57.803M  |
+|     layer2.0.conv1.weight |     (128, 64, 3, 3)    |             |
+|    layer2.0.bn1           |    0.256K              |    0.201M   |
+|     layer2.0.bn1.weight   |     (128,)             |             |
+|     layer2.0.bn1.bias     |     (128,)             |             |
+|    layer2.0.conv2         |    0.147M              |    0.116G   |
+|     layer2.0.conv2.weight |     (128, 128, 3, 3)   |             |
+|    layer2.0.bn2           |    0.256K              |    0.201M   |
+|     layer2.0.bn2.weight   |     (128,)             |             |
+|     layer2.0.bn2.bias     |     (128,)             |             |
+|    layer2.0.downsample    |    8.448K              |    6.623M   |
+|     layer2.0.downsample.0 |     8.192K             |     6.423M  |
+|     layer2.0.downsample.1 |     0.256K             |     0.201M  |
+|   layer2.1                |   0.295M               |   0.232G    |
+|    layer2.1.conv1         |    0.147M              |    0.116G   |
+|     layer2.1.conv1.weight |     (128, 128, 3, 3)   |             |
+|    layer2.1.bn1           |    0.256K              |    0.201M   |
+|     layer2.1.bn1.weight   |     (128,)             |             |
+|     layer2.1.bn1.bias     |     (128,)             |             |
+|    layer2.1.conv2         |    0.147M              |    0.116G   |
+|     layer2.1.conv2.weight |     (128, 128, 3, 3)   |             |
+|    layer2.1.bn2           |    0.256K              |    0.201M   |
+|     layer2.1.bn2.weight   |     (128,)             |             |
+|     layer2.1.bn2.bias     |     (128,)             |             |
+|  layer3                   |  2.1M                  |  0.412G     |
+|   layer3.0                |   0.919M               |   0.18G     |
+|    layer3.0.conv1         |    0.295M              |    57.803M  |
+|     layer3.0.conv1.weight |     (256, 128, 3, 3)   |             |
+|    layer3.0.bn1           |    0.512K              |    0.1M     |
+|     layer3.0.bn1.weight   |     (256,)             |             |
+|     layer3.0.bn1.bias     |     (256,)             |             |
+|    layer3.0.conv2         |    0.59M               |    0.116G   |
+|     layer3.0.conv2.weight |     (256, 256, 3, 3)   |             |
+|    layer3.0.bn2           |    0.512K              |    0.1M     |
+|     layer3.0.bn2.weight   |     (256,)             |             |
+|     layer3.0.bn2.bias     |     (256,)             |             |
+|    layer3.0.downsample    |    33.28K              |    6.523M   |
+|     layer3.0.downsample.0 |     32.768K            |     6.423M  |
+|     layer3.0.downsample.1 |     0.512K             |     0.1M    |
+|   layer3.1                |   1.181M               |   0.231G    |
+|    layer3.1.conv1         |    0.59M               |    0.116G   |
+|     layer3.1.conv1.weight |     (256, 256, 3, 3)   |             |
+|    layer3.1.bn1           |    0.512K              |    0.1M     |
+|     layer3.1.bn1.weight   |     (256,)             |             |
+|     layer3.1.bn1.bias     |     (256,)             |             |
+|    layer3.1.conv2         |    0.59M               |    0.116G   |
+|     layer3.1.conv2.weight |     (256, 256, 3, 3)   |             |
+|    layer3.1.bn2           |    0.512K              |    0.1M     |
+|     layer3.1.bn2.weight   |     (256,)             |             |
+|     layer3.1.bn2.bias     |     (256,)             |             |
+|  layer4                   |  8.394M                |  0.411G     |
+|   layer4.0                |   3.673M               |   0.18G     |
+|    layer4.0.conv1         |    1.18M               |    57.803M  |
+|     layer4.0.conv1.weight |     (512, 256, 3, 3)   |             |
+|    layer4.0.bn1           |    1.024K              |    50.176K  |
+|     layer4.0.bn1.weight   |     (512,)             |             |
+|     layer4.0.bn1.bias     |     (512,)             |             |
+|    layer4.0.conv2         |    2.359M              |    0.116G   |
+|     layer4.0.conv2.weight |     (512, 512, 3, 3)   |             |
+|    layer4.0.bn2           |    1.024K              |    50.176K  |
+|     layer4.0.bn2.weight   |     (512,)             |             |
+|     layer4.0.bn2.bias     |     (512,)             |             |
+|    layer4.0.downsample    |    0.132M              |    6.473M   |
+|     layer4.0.downsample.0 |     0.131M             |     6.423M  |
+|     layer4.0.downsample.1 |     1.024K             |     50.176K |
+|   layer4.1                |   4.721M               |   0.231G    |
+|    layer4.1.conv1         |    2.359M              |    0.116G   |
+|     layer4.1.conv1.weight |     (512, 512, 3, 3)   |             |
+|    layer4.1.bn1           |    1.024K              |    50.176K  |
+|     layer4.1.bn1.weight   |     (512,)             |             |
+|     layer4.1.bn1.bias     |     (512,)             |             |
+|    layer4.1.conv2         |    2.359M              |    0.116G   |
+|     layer4.1.conv2.weight |     (512, 512, 3, 3)   |             |
+|    layer4.1.bn2           |    1.024K              |    50.176K  |
+|     layer4.1.bn2.weight   |     (512,)             |             |
+|     layer4.1.bn2.bias     |     (512,)             |             |
+|  fc                       |  0.134M                |  0.134M     |
+|   fc.0                    |   0.131M               |   0.131M    |
+|    fc.0.weight            |    (256, 512)          |             |
+|    fc.0.bias              |    (256,)              |             |
+|   fc.3                    |   2.57K                |   2.56K     |
+|    fc.3.weight            |    (10, 256)           |             |
+|    fc.3.bias              |    (10,)               |             |
+|  avgpool                  |                        |  25.088K    |
+
+2. Total FLOP count: 1818687488
+
+3. FLOP count by operator: Counter({'conv': 1813561344, 'batch_norm': 4967424, 'linear': 133632, 'adaptive_avg_pool2d': 25088})

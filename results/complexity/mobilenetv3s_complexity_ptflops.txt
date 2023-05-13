@@ -1,0 +1,347 @@
+MobileNetV3(
+  1.08 M, 100.000% Params, 58.66 MMac, 100.000% MACs,
+  (features): Sequential(
+    927.01 k, 86.050% Params, 58.48 MMac, 99.695% MACs,
+    (0): Conv2dNormActivation(
+      464, 0.043% Params, 5.82 MMac, 9.922% MACs,
+      (0): Conv2d(432, 0.040% Params, 5.42 MMac, 9.238% MACs, 3, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1),bias=False)
+      (1): BatchNorm2d(32, 0.003% Params, 401.41 KMac, 0.684% MACs, 16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+    )
+    (1): InvertedResidual(
+      744, 0.069% Params, 1.56 MMac, 2.652% MACs,
+      (block): Sequential(
+        744, 0.069% Params, 1.56 MMac, 2.652% MACs,
+        (0): Conv2dNormActivation(
+          176, 0.016% Params, 602.11 KMac, 1.026% MACs,
+          (0): Conv2d(144, 0.013% Params, 451.58 KMac, 0.770% MACs, 16, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=16, bias=False)
+          (1): BatchNorm2d(32, 0.003% Params, 100.35 KMac, 0.171% MACs, 16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(0, 0.000% Params, 50.18 KMac, 0.086% MACs, inplace=True)
+        )
+        (1): SqueezeExcitation(
+          280, 0.026% Params, 50.46 KMac, 0.086% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 50.18 KMac, 0.086% MACs, output_size=1)
+          (fc1): Conv2d(136, 0.013% Params, 136.0 Mac, 0.000% MACs, 16, 8, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(144, 0.013% Params, 144.0 Mac, 0.000% MACs, 8, 16, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 8.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): Conv2dNormActivation(
+          288, 0.027% Params, 903.17 KMac, 1.540% MACs,
+          (0): Conv2d(256, 0.024% Params, 802.82 KMac, 1.369% MACs, 16, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, 0.003% Params, 100.35 KMac, 0.171% MACs, 16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (2): InvertedResidual(
+      3.86 k, 0.359% Params, 6.36 MMac, 10.842% MACs,
+      (block): Sequential(
+        3.86 k, 0.359% Params, 6.36 MMac, 10.842% MACs,
+        (0): Conv2dNormActivation(
+          1.3 k, 0.120% Params, 4.29 MMac, 7.313% MACs,
+          (0): Conv2d(1.15 k, 0.107% Params, 3.61 MMac, 6.159% MACs, 16, 72, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(144, 0.013% Params, 451.58 KMac, 0.770% MACs, 72, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(0, 0.000% Params, 225.79 KMac, 0.385% MACs, inplace=True)
+        )
+        (1): Conv2dNormActivation(
+          792, 0.074% Params, 677.38 KMac, 1.155% MACs,
+          (0): Conv2d(648, 0.060% Params, 508.03 KMac, 0.866% MACs, 72, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=72, bias=False)
+          (1): BatchNorm2d(144, 0.013% Params, 112.9 KMac, 0.192% MACs, 72, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(0, 0.000% Params, 56.45 KMac, 0.096% MACs, inplace=True)
+        )
+        (2): Conv2dNormActivation(
+          1.78 k, 0.165% Params, 1.39 MMac, 2.374% MACs,
+          (0): Conv2d(1.73 k, 0.160% Params, 1.35 MMac, 2.309% MACs, 72, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(48, 0.004% Params, 37.63 KMac, 0.064% MACs, 24, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (3): InvertedResidual(
+      5.42 k, 0.503% Params, 4.38 MMac, 7.474% MACs,
+      (block): Sequential(
+        5.42 k, 0.503% Params, 4.38 MMac, 7.474% MACs,
+        (0): Conv2dNormActivation(
+          2.29 k, 0.212% Params, 1.86 MMac, 3.176% MACs,
+          (0): Conv2d(2.11 k, 0.196% Params, 1.66 MMac, 2.823% MACs, 24, 88, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(176, 0.016% Params, 137.98 KMac, 0.235% MACs, 88, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(0, 0.000% Params, 68.99 KMac, 0.118% MACs, inplace=True)
+        )
+        (1): Conv2dNormActivation(
+          968, 0.090% Params, 827.9 KMac, 1.411% MACs,
+          (0): Conv2d(792, 0.074% Params, 620.93 KMac, 1.059% MACs, 88, 88, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=88, bias=False)
+          (1): BatchNorm2d(176, 0.016% Params, 137.98 KMac, 0.235% MACs, 88, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(0, 0.000% Params, 68.99 KMac, 0.118% MACs, inplace=True)
+        )
+        (2): Conv2dNormActivation(
+          2.16 k, 0.201% Params, 1.69 MMac, 2.887% MACs,
+          (0): Conv2d(2.11 k, 0.196% Params, 1.66 MMac, 2.823% MACs, 88, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(48, 0.004% Params, 37.63 KMac, 0.064% MACs, 24, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (4): InvertedResidual(
+      13.74 k, 1.275% Params, 3.26 MMac, 5.552% MACs,
+      (block): Sequential(
+        13.74 k, 1.275% Params, 3.26 MMac, 5.552% MACs,
+        (0): Conv2dNormActivation(
+          2.5 k, 0.232% Params, 1.96 MMac, 3.336% MACs,
+          (0): Conv2d(2.3 k, 0.214% Params, 1.81 MMac, 3.079% MACs, 24, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(192, 0.018% Params, 150.53 KMac, 0.257% MACs, 96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): Conv2dNormActivation(
+          2.59 k, 0.241% Params, 508.03 KMac, 0.866% MACs,
+          (0): Conv2d(2.4 k, 0.223% Params, 470.4 KMac, 0.802% MACs, 96, 96, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2), groups=96, bias=False)
+          (1): BatchNorm2d(192, 0.018% Params, 37.63 KMac, 0.064% MACs, 96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): SqueezeExcitation(
+          4.73 k, 0.439% Params, 23.57 KMac, 0.040% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 18.82 KMac, 0.032% MACs, output_size=1)
+          (fc1): Conv2d(2.33 k, 0.216% Params, 2.33 KMac, 0.004% MACs, 96, 24, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(2.4 k, 0.223% Params, 2.4 KMac, 0.004% MACs, 24, 96, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 24.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): Conv2dNormActivation(
+          3.92 k, 0.364% Params, 768.32 KMac, 1.310% MACs,
+          (0): Conv2d(3.84 k, 0.356% Params, 752.64 KMac, 1.283% MACs, 96, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(80, 0.007% Params, 15.68 KMac, 0.027% MACs, 40, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (5): InvertedResidual(
+      57.26 k, 5.316% Params, 5.22 MMac, 8.901% MACs,
+      (block): Sequential(
+        57.26 k, 5.316% Params, 5.22 MMac, 8.901% MACs,
+        (0): Conv2dNormActivation(
+          10.08 k, 0.936% Params, 1.98 MMac, 3.368% MACs,
+          (0): Conv2d(9.6 k, 0.891% Params, 1.88 MMac, 3.208% MACs, 40, 240, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(480, 0.045% Params, 94.08 KMac, 0.160% MACs, 240, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): Conv2dNormActivation(
+          6.48 k, 0.602% Params, 1.27 MMac, 2.165% MACs,
+          (0): Conv2d(6.0 k, 0.557% Params, 1.18 MMac, 2.005% MACs, 240, 240, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=240, bias=False)
+          (1): BatchNorm2d(480, 0.045% Params, 94.08 KMac, 0.160% MACs, 240, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): SqueezeExcitation(
+          31.02 k, 2.880% Params, 78.13 KMac, 0.133% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 47.04 KMac, 0.080% MACs, output_size=1)
+          (fc1): Conv2d(15.42 k, 1.432% Params, 15.42 KMac, 0.026% MACs, 240, 64, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(15.6 k, 1.448% Params, 15.6 KMac, 0.027% MACs, 64, 240, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 64.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): Conv2dNormActivation(
+          9.68 k, 0.899% Params, 1.9 MMac, 3.234% MACs,
+          (0): Conv2d(9.6 k, 0.891% Params, 1.88 MMac, 3.208% MACs, 240, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(80, 0.007% Params, 15.68 KMac, 0.027% MACs, 40, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (6): InvertedResidual(
+      57.26 k, 5.316% Params, 5.22 MMac, 8.901% MACs,
+      (block): Sequential(
+        57.26 k, 5.316% Params, 5.22 MMac, 8.901% MACs,
+        (0): Conv2dNormActivation(
+          10.08 k, 0.936% Params, 1.98 MMac, 3.368% MACs,
+          (0): Conv2d(9.6 k, 0.891% Params, 1.88 MMac, 3.208% MACs, 40, 240, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(480, 0.045% Params, 94.08 KMac, 0.160% MACs, 240, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): Conv2dNormActivation(
+          6.48 k, 0.602% Params, 1.27 MMac, 2.165% MACs,
+          (0): Conv2d(6.0 k, 0.557% Params, 1.18 MMac, 2.005% MACs, 240, 240, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=240, bias=False)
+          (1): BatchNorm2d(480, 0.045% Params, 94.08 KMac, 0.160% MACs, 240, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): SqueezeExcitation(
+          31.02 k, 2.880% Params, 78.13 KMac, 0.133% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 47.04 KMac, 0.080% MACs, output_size=1)
+          (fc1): Conv2d(15.42 k, 1.432% Params, 15.42 KMac, 0.026% MACs, 240, 64, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(15.6 k, 1.448% Params, 15.6 KMac, 0.027% MACs, 64, 240, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 64.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): Conv2dNormActivation(
+          9.68 k, 0.899% Params, 1.9 MMac, 3.234% MACs,
+          (0): Conv2d(9.6 k, 0.891% Params, 1.88 MMac, 3.208% MACs, 240, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(80, 0.007% Params, 15.68 KMac, 0.027% MACs, 40, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (7): InvertedResidual(
+      21.97 k, 2.039% Params, 2.8 MMac, 4.777% MACs,
+      (block): Sequential(
+        21.97 k, 2.039% Params, 2.8 MMac, 4.777% MACs,
+        (0): Conv2dNormActivation(
+          5.04 k, 0.468% Params, 987.84 KMac, 1.684% MACs,
+          (0): Conv2d(4.8 k, 0.446% Params, 940.8 KMac, 1.604% MACs, 40, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(240, 0.022% Params, 47.04 KMac, 0.080% MACs, 120, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): Conv2dNormActivation(
+          3.24 k, 0.301% Params, 635.04 KMac, 1.083% MACs,
+          (0): Conv2d(3.0 k, 0.278% Params, 588.0 KMac, 1.002% MACs, 120, 120, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=120, bias=False)
+          (1): BatchNorm2d(240, 0.022% Params, 47.04 KMac, 0.080% MACs, 120, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): SqueezeExcitation(
+          7.83 k, 0.727% Params, 31.38 KMac, 0.054% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 23.52 KMac, 0.040% MACs, output_size=1)
+          (fc1): Conv2d(3.87 k, 0.359% Params, 3.87 KMac, 0.007% MACs, 120, 32, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(3.96 k, 0.368% Params, 3.96 KMac, 0.007% MACs, 32, 120, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 32.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): Conv2dNormActivation(
+          5.86 k, 0.544% Params, 1.15 MMac, 1.957% MACs,
+          (0): Conv2d(5.76 k, 0.535% Params, 1.13 MMac, 1.925% MACs, 120, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(96, 0.009% Params, 18.82 KMac, 0.032% MACs, 48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (8): InvertedResidual(
+      29.8 k, 2.766% Params, 3.59 MMac, 6.115% MACs,
+      (block): Sequential(
+        29.8 k, 2.766% Params, 3.59 MMac, 6.115% MACs,
+        (0): Conv2dNormActivation(
+          7.2 k, 0.668% Params, 1.41 MMac, 2.406% MACs,
+          (0): Conv2d(6.91 k, 0.642% Params, 1.35 MMac, 2.309% MACs, 48, 144, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(288, 0.027% Params, 56.45 KMac, 0.096% MACs, 144, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): Conv2dNormActivation(
+          3.89 k, 0.361% Params, 762.05 KMac, 1.299% MACs,
+          (0): Conv2d(3.6 k, 0.334% Params, 705.6 KMac, 1.203% MACs, 144, 144, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=144, bias=False)
+          (1): BatchNorm2d(288, 0.027% Params, 56.45 KMac, 0.096% MACs, 144, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): SqueezeExcitation(
+          11.7 k, 1.086% Params, 39.97 KMac, 0.068% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 28.22 KMac, 0.048% MACs, output_size=1)
+          (fc1): Conv2d(5.8 k, 0.538% Params, 5.8 KMac, 0.010% MACs, 144, 40, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(5.9 k, 0.548% Params, 5.9 KMac, 0.010% MACs, 40, 144, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 40.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): Conv2dNormActivation(
+          7.01 k, 0.651% Params, 1.37 MMac, 2.342% MACs,
+          (0): Conv2d(6.91 k, 0.642% Params, 1.35 MMac, 2.309% MACs, 144, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(96, 0.009% Params, 18.82 KMac, 0.032% MACs, 48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (9): InvertedResidual(
+      91.85 k, 8.526% Params, 4.62 MMac, 7.882% MACs,
+      (block): Sequential(
+        91.85 k, 8.526% Params, 4.62 MMac, 7.882% MACs,
+        (0): Conv2dNormActivation(
+          14.4 k, 1.337% Params, 2.82 MMac, 4.811% MACs,
+          (0): Conv2d(13.82 k, 1.283% Params, 2.71 MMac, 4.619% MACs, 48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(576, 0.053% Params, 112.9 KMac, 0.192% MACs, 288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): Conv2dNormActivation(
+          7.78 k, 0.722% Params, 381.02 KMac, 0.650% MACs,
+          (0): Conv2d(7.2 k, 0.668% Params, 352.8 KMac, 0.601% MACs, 288, 288, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2), groups=288, bias=False)
+          (1): BatchNorm2d(576, 0.053% Params, 28.22 KMac, 0.048% MACs, 288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): SqueezeExcitation(
+          41.83 k, 3.883% Params, 56.02 KMac, 0.095% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 14.11 KMac, 0.024% MACs, output_size=1)
+          (fc1): Conv2d(20.81 k, 1.932% Params, 20.81 KMac, 0.035% MACs, 288, 72, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(21.02 k, 1.952% Params, 21.02 KMac, 0.036% MACs, 72, 288, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 72.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): Conv2dNormActivation(
+          27.84 k, 2.584% Params, 1.36 MMac, 2.326% MACs,
+          (0): Conv2d(27.65 k, 2.566% Params, 1.35 MMac, 2.309% MACs, 288, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(192, 0.018% Params, 9.41 KMac, 0.016% MACs, 96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (10): InvertedResidual(
+      294.1 k, 27.300% Params, 6.44 MMac, 10.982% MACs,
+      (block): Sequential(
+        294.1 k, 27.300% Params, 6.44 MMac, 10.982% MACs,
+        (0): Conv2dNormActivation(
+          56.45 k, 5.240% Params, 2.77 MMac, 4.715% MACs,
+          (0): Conv2d(55.3 k, 5.133% Params, 2.71 MMac, 4.619% MACs, 96, 576, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(1.15 k, 0.107% Params, 56.45 KMac, 0.096% MACs, 576, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): Conv2dNormActivation(
+          15.55 k, 1.444% Params, 762.05 KMac, 1.299% MACs,
+          (0): Conv2d(14.4 k, 1.337% Params, 705.6 KMac, 1.203% MACs, 576, 576, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=576, bias=False)
+          (1): BatchNorm2d(1.15 k, 0.107% Params, 56.45 KMac, 0.096% MACs, 576, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): SqueezeExcitation(
+          166.61 k, 15.465% Params, 194.98 KMac, 0.332% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 28.22 KMac, 0.048% MACs, output_size=1)
+          (fc1): Conv2d(83.09 k, 7.713% Params, 83.09 KMac, 0.142% MACs, 576, 144, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(83.52 k, 7.753% Params, 83.52 KMac, 0.142% MACs, 144, 576, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 144.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): Conv2dNormActivation(
+          55.49 k, 5.151% Params, 2.72 MMac, 4.635% MACs,
+          (0): Conv2d(55.3 k, 5.133% Params, 2.71 MMac, 4.619% MACs, 576, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(192, 0.018% Params, 9.41 KMac, 0.016% MACs, 96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (11): InvertedResidual(
+      294.1 k, 27.300% Params, 6.44 MMac, 10.982% MACs,
+      (block): Sequential(
+        294.1 k, 27.300% Params, 6.44 MMac, 10.982% MACs,
+        (0): Conv2dNormActivation(
+          56.45 k, 5.240% Params, 2.77 MMac, 4.715% MACs,
+          (0): Conv2d(55.3 k, 5.133% Params, 2.71 MMac, 4.619% MACs, 96, 576, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(1.15 k, 0.107% Params, 56.45 KMac, 0.096% MACs, 576, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (1): Conv2dNormActivation(
+          15.55 k, 1.444% Params, 762.05 KMac, 1.299% MACs,
+          (0): Conv2d(14.4 k, 1.337% Params, 705.6 KMac, 1.203% MACs, 576, 576, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=576, bias=False)
+          (1): BatchNorm2d(1.15 k, 0.107% Params, 56.45 KMac, 0.096% MACs, 576, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (2): SqueezeExcitation(
+          166.61 k, 15.465% Params, 194.98 KMac, 0.332% MACs,
+          (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 28.22 KMac, 0.048% MACs, output_size=1)
+          (fc1): Conv2d(83.09 k, 7.713% Params, 83.09 KMac, 0.142% MACs, 576, 144, kernel_size=(1, 1), stride=(1, 1))
+          (fc2): Conv2d(83.52 k, 7.753% Params, 83.52 KMac, 0.142% MACs, 144, 576, kernel_size=(1, 1), stride=(1, 1))
+          (activation): ReLU(0, 0.000% Params, 144.0 Mac, 0.000% MACs, )
+          (scale_activation): Hardsigmoid(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+        )
+        (3): Conv2dNormActivation(
+          55.49 k, 5.151% Params, 2.72 MMac, 4.635% MACs,
+          (0): Conv2d(55.3 k, 5.133% Params, 2.71 MMac, 4.619% MACs, 576, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(192, 0.018% Params, 9.41 KMac, 0.016% MACs, 96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (12): Conv2dNormActivation(
+      56.45 k, 5.240% Params, 2.77 MMac, 4.715% MACs,
+      (0): Conv2d(55.3 k, 5.133% Params, 2.71 MMac, 4.619% MACs, 96, 576, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): BatchNorm2d(1.15 k, 0.107% Params, 56.45 KMac, 0.096% MACs, 576, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      (2): Hardswish(0, 0.000% Params, 0.0 Mac, 0.000% MACs, )
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(0, 0.000% Params, 28.22 KMac, 0.048% MACs, output_size=1)
+  (classifier): Sequential(
+    150.28 k, 13.950% Params, 150.54 KMac, 0.257% MACs,
+    (0): Linear(147.71 k, 13.711% Params, 147.71 KMac, 0.252% MACs, in_features=576, out_features=256, bias=True)
+    (1): ReLU(0, 0.000% Params, 256.0 Mac, 0.000% MACs, inplace=True)
+    (2): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.5, inplace=False)
+    (3): Linear(2.57 k, 0.239% Params, 2.57 KMac, 0.004% MACs, in_features=256, out_features=10, bias=True)
+  )
+)
+Computational complexity:       58.66 MMac
+Number of parameters:           1.08 M

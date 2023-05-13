@@ -1,0 +1,33 @@
+FashionCNN(
+  12.87 M, 100.000% Params, 157.15 MMac, 100.000% MACs,
+  (layer1): Sequential(
+    480, 0.004% Params, 25.69 MMac, 16.347% MACs,
+    (0): Conv2d(448, 0.003% Params, 22.48 MMac, 14.304% MACs, 3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): BatchNorm2d(32, 0.000% Params, 1.61 MMac, 1.022% MACs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(0, 0.000% Params, 802.82 KMac, 0.511% MACs, )
+    (3): MaxPool2d(0, 0.000% Params, 802.82 KMac, 0.511% MACs, kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (layer2): Sequential(
+    4.7 k, 0.037% Params, 59.81 MMac, 38.058% MACs,
+    (0): Conv2d(4.64 k, 0.036% Params, 58.2 MMac, 37.036% MACs, 16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): BatchNorm2d(64, 0.000% Params, 802.82 KMac, 0.511% MACs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(0, 0.000% Params, 401.41 KMac, 0.255% MACs, )
+    (3): MaxPool2d(0, 0.000% Params, 401.41 KMac, 0.255% MACs, kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (layer3): Sequential(
+    18.62 k, 0.145% Params, 58.81 MMac, 37.419% MACs,
+    (0): Conv2d(18.5 k, 0.144% Params, 58.0 MMac, 36.909% MACs, 32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): BatchNorm2d(128, 0.001% Params, 401.41 KMac, 0.255% MACs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(0, 0.000% Params, 200.7 KMac, 0.128% MACs, )
+    (3): MaxPool2d(0, 0.000% Params, 200.7 KMac, 0.128% MACs, kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (classifier): Sequential(
+    12.85 M, 99.815% Params, 12.85 MMac, 8.175% MACs,
+    (0): Linear(12.85 M, 99.795% Params, 12.85 MMac, 8.174% MACs, in_features=50176, out_features=256, bias=True)
+    (1): ReLU(0, 0.000% Params, 256.0 Mac, 0.000% MACs, )
+    (2): Dropout(0, 0.000% Params, 0.0 Mac, 0.000% MACs, p=0.5, inplace=False)
+    (3): Linear(2.57 k, 0.020% Params, 2.57 KMac, 0.002% MACs, in_features=256, out_features=10, bias=True)
+  )
+)
+Computational complexity:       157.15 MMac
+Number of parameters:           12.87 M

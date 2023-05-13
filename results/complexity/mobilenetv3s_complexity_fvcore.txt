@@ -1,0 +1,174 @@
+1. FLOP count table (max depth = 4):
+
+| module                          | #parameters or shape   | #flops      |
+|:--------------------------------|:-----------------------|:------------|
+| model                           | 1.077M                 | 58.186M     |
+|  features                       |  0.927M                |  58.007M    |
+|   features.0                    |   0.464K               |   5.82M     |
+|    features.0.0                 |    0.432K              |    5.419M   |
+|     features.0.0.weight         |     (16, 3, 3, 3)      |             |
+|    features.0.1                 |    32                  |    0.401M   |
+|     features.0.1.weight         |     (16,)              |             |
+|     features.0.1.bias           |     (16,)              |             |
+|   features.1.block              |   0.744K               |   1.506M    |
+|    features.1.block.0           |    0.176K              |    0.552M   |
+|     features.1.block.0.0        |     0.144K             |     0.452M  |
+|     features.1.block.0.1        |     32                 |     0.1M    |
+|    features.1.block.1           |    0.28K               |    50.432K  |
+|     features.1.block.1.fc1      |     0.136K             |     0.128K  |
+|     features.1.block.1.fc2      |     0.144K             |     0.128K  |
+|     features.1.block.1.avgpool  |                        |     50.176K |
+|    features.1.block.2           |    0.288K              |    0.903M   |
+|     features.1.block.2.0        |     0.256K             |     0.803M  |
+|     features.1.block.2.1        |     32                 |     0.1M    |
+|   features.2.block              |   3.864K               |   6.078M    |
+|    features.2.block.0           |    1.296K              |    4.064M   |
+|     features.2.block.0.0        |     1.152K             |     3.613M  |
+|     features.2.block.0.1        |     0.144K             |     0.452M  |
+|    features.2.block.1           |    0.792K              |    0.621M   |
+|     features.2.block.1.0        |     0.648K             |     0.508M  |
+|     features.2.block.1.1        |     0.144K             |     0.113M  |
+|    features.2.block.2           |    1.776K              |    1.392M   |
+|     features.2.block.2.0        |     1.728K             |     1.355M  |
+|     features.2.block.2.1        |     48                 |     37.632K |
+|   features.3.block              |   5.416K               |   4.246M    |
+|    features.3.block.0           |    2.288K              |    1.794M   |
+|     features.3.block.0.0        |     2.112K             |     1.656M  |
+|     features.3.block.0.1        |     0.176K             |     0.138M  |
+|    features.3.block.1           |    0.968K              |    0.759M   |
+|     features.3.block.1.0        |     0.792K             |     0.621M  |
+|     features.3.block.1.1        |     0.176K             |     0.138M  |
+|    features.3.block.2           |    2.16K               |    1.693M   |
+|     features.3.block.2.0        |     2.112K             |     1.656M  |
+|     features.3.block.2.1        |     48                 |     37.632K |
+|   features.4.block              |   13.736K              |   3.257M    |
+|    features.4.block.0           |    2.496K              |    1.957M   |
+|     features.4.block.0.0        |     2.304K             |     1.806M  |
+|     features.4.block.0.1        |     0.192K             |     0.151M  |
+|    features.4.block.1           |    2.592K              |    0.508M   |
+|     features.4.block.1.0        |     2.4K               |     0.47M   |
+|     features.4.block.1.1        |     0.192K             |     37.632K |
+|    features.4.block.2           |    4.728K              |    23.424K  |
+|     features.4.block.2.fc1      |     2.328K             |     2.304K  |
+|     features.4.block.2.fc2      |     2.4K               |     2.304K  |
+|     features.4.block.2.avgpool  |                        |     18.816K |
+|    features.4.block.3           |    3.92K               |    0.768M   |
+|     features.4.block.3.0        |     3.84K              |     0.753M  |
+|     features.4.block.3.1        |     80                 |     15.68K  |
+|   features.5.block              |   57.264K              |   5.221M    |
+|    features.5.block.0           |    10.08K              |    1.976M   |
+|     features.5.block.0.0        |     9.6K               |     1.882M  |
+|     features.5.block.0.1        |     0.48K              |     94.08K  |
+|    features.5.block.1           |    6.48K               |    1.27M    |
+|     features.5.block.1.0        |     6K                 |     1.176M  |
+|     features.5.block.1.1        |     0.48K              |     94.08K  |
+|    features.5.block.2           |    31.024K             |    77.76K   |
+|     features.5.block.2.fc1      |     15.424K            |     15.36K  |
+|     features.5.block.2.fc2      |     15.6K              |     15.36K  |
+|     features.5.block.2.avgpool  |                        |     47.04K  |
+|    features.5.block.3           |    9.68K               |    1.897M   |
+|     features.5.block.3.0        |     9.6K               |     1.882M  |
+|     features.5.block.3.1        |     80                 |     15.68K  |
+|   features.6.block              |   57.264K              |   5.221M    |
+|    features.6.block.0           |    10.08K              |    1.976M   |
+|     features.6.block.0.0        |     9.6K               |     1.882M  |
+|     features.6.block.0.1        |     0.48K              |     94.08K  |
+|    features.6.block.1           |    6.48K               |    1.27M    |
+|     features.6.block.1.0        |     6K                 |     1.176M  |
+|     features.6.block.1.1        |     0.48K              |     94.08K  |
+|    features.6.block.2           |    31.024K             |    77.76K   |
+|     features.6.block.2.fc1      |     15.424K            |     15.36K  |
+|     features.6.block.2.fc2      |     15.6K              |     15.36K  |
+|     features.6.block.2.avgpool  |                        |     47.04K  |
+|    features.6.block.3           |    9.68K               |    1.897M   |
+|     features.6.block.3.0        |     9.6K               |     1.882M  |
+|     features.6.block.3.1        |     80                 |     15.68K  |
+|   features.7.block              |   21.968K              |   2.802M    |
+|    features.7.block.0           |    5.04K               |    0.988M   |
+|     features.7.block.0.0        |     4.8K               |     0.941M  |
+|     features.7.block.0.1        |     0.24K              |     47.04K  |
+|    features.7.block.1           |    3.24K               |    0.635M   |
+|     features.7.block.1.0        |     3K                 |     0.588M  |
+|     features.7.block.1.1        |     0.24K              |     47.04K  |
+|    features.7.block.2           |    7.832K              |    31.2K    |
+|     features.7.block.2.fc1      |     3.872K             |     3.84K   |
+|     features.7.block.2.fc2      |     3.96K              |     3.84K   |
+|     features.7.block.2.avgpool  |                        |     23.52K  |
+|    features.7.block.3           |    5.856K              |    1.148M   |
+|     features.7.block.3.0        |     5.76K              |     1.129M  |
+|     features.7.block.3.1        |     96                 |     18.816K |
+|   features.8.block              |   29.8K                |   3.587M    |
+|    features.8.block.0           |    7.2K                |    1.411M   |
+|     features.8.block.0.0        |     6.912K             |     1.355M  |
+|     features.8.block.0.1        |     0.288K             |     56.448K |
+|    features.8.block.1           |    3.888K              |    0.762M   |
+|     features.8.block.1.0        |     3.6K               |     0.706M  |
+|     features.8.block.1.1        |     0.288K             |     56.448K |
+|    features.8.block.2           |    11.704K             |    39.744K  |
+|     features.8.block.2.fc1      |     5.8K               |     5.76K   |
+|     features.8.block.2.fc2      |     5.904K             |     5.76K   |
+|     features.8.block.2.avgpool  |                        |     28.224K |
+|    features.8.block.3           |    7.008K              |    1.374M   |
+|     features.8.block.3.0        |     6.912K             |     1.355M  |
+|     features.8.block.3.1        |     96                 |     18.816K |
+|   features.9.block              |   91.848K              |   4.623M    |
+|    features.9.block.0           |    14.4K               |    2.822M   |
+|     features.9.block.0.0        |     13.824K            |     2.71M   |
+|     features.9.block.0.1        |     0.576K             |     0.113M  |
+|    features.9.block.1           |    7.776K              |    0.381M   |
+|     features.9.block.1.0        |     7.2K               |     0.353M  |
+|     features.9.block.1.1        |     0.576K             |     28.224K |
+|    features.9.block.2           |    41.832K             |    55.584K  |
+|     features.9.block.2.fc1      |     20.808K            |     20.736K |
+|     features.9.block.2.fc2      |     21.024K            |     20.736K |
+|     features.9.block.2.avgpool  |                        |     14.112K |
+|    features.9.block.3           |    27.84K              |    1.364M   |
+|     features.9.block.3.0        |     27.648K            |     1.355M  |
+|     features.9.block.3.1        |     0.192K             |     9.408K  |
+|   features.10.block             |   0.294M               |   6.441M    |
+|    features.10.block.0          |    56.448K             |    2.766M   |
+|     features.10.block.0.0       |     55.296K            |     2.71M   |
+|     features.10.block.0.1       |     1.152K             |     56.448K |
+|    features.10.block.1          |    15.552K             |    0.762M   |
+|     features.10.block.1.0       |     14.4K              |     0.706M  |
+|     features.10.block.1.1       |     1.152K             |     56.448K |
+|    features.10.block.2          |    0.167M              |    0.194M   |
+|     features.10.block.2.fc1     |     83.088K            |     82.944K |
+|     features.10.block.2.fc2     |     83.52K             |     82.944K |
+|     features.10.block.2.avgpool |                        |     28.224K |
+|    features.10.block.3          |    55.488K             |    2.719M   |
+|     features.10.block.3.0       |     55.296K            |     2.71M   |
+|     features.10.block.3.1       |     0.192K             |     9.408K  |
+|   features.11.block             |   0.294M               |   6.441M    |
+|    features.11.block.0          |    56.448K             |    2.766M   |
+|     features.11.block.0.0       |     55.296K            |     2.71M   |
+|     features.11.block.0.1       |     1.152K             |     56.448K |
+|    features.11.block.1          |    15.552K             |    0.762M   |
+|     features.11.block.1.0       |     14.4K              |     0.706M  |
+|     features.11.block.1.1       |     1.152K             |     56.448K |
+|    features.11.block.2          |    0.167M              |    0.194M   |
+|     features.11.block.2.fc1     |     83.088K            |     82.944K |
+|     features.11.block.2.fc2     |     83.52K             |     82.944K |
+|     features.11.block.2.avgpool |                        |     28.224K |
+|    features.11.block.3          |    55.488K             |    2.719M   |
+|     features.11.block.3.0       |     55.296K            |     2.71M   |
+|     features.11.block.3.1       |     0.192K             |     9.408K  |
+|   features.12                   |   56.448K              |   2.766M    |
+|    features.12.0                |    55.296K             |    2.71M    |
+|     features.12.0.weight        |     (576, 96, 1, 1)    |             |
+|    features.12.1                |    1.152K              |    56.448K  |
+|     features.12.1.weight        |     (576,)             |             |
+|     features.12.1.bias          |     (576,)             |             |
+|  classifier                     |  0.15M                 |  0.15M      |
+|   classifier.0                  |   0.148M               |   0.147M    |
+|    classifier.0.weight          |    (256, 576)          |             |
+|    classifier.0.bias            |    (256,)              |             |
+|   classifier.3                  |   2.57K                |   2.56K     |
+|    classifier.3.weight          |    (10, 256)           |             |
+|    classifier.3.bias            |    (10,)               |             |
+|  avgpool                        |                        |  28.224K    |
+
+2. Total FLOP count: 58185728
+
+3. FLOP count by operator:
+Counter({'conv': 54896576, 'batch_norm': 2825536, 'adaptive_avg_pool2d': 313600, 'linear': 150016})
