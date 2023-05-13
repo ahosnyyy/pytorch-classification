@@ -1,0 +1,7 @@
+__pycache__
+.idea
+*.txt
+.data
+*.pt
+*.pth
+*.onnx
