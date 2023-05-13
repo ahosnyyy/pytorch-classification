@@ -1,4 +1,5 @@
 # Pytorch Classification
+This PyTorch repository provides code for training and evaluating image classification models. It includes various export options and supports quantization for deployment. In addition, it allows easy integration of custom datasets and custom models. Please refer to the README for further details.
 
 ## Quick Start
 
