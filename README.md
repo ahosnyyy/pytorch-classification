@@ -392,7 +392,7 @@ You can use scripts provided to calculate FLOPs, MACCs, DMAs, and Params for ove
 python3 complexity_[fvcore/ptflops/thop/torchscan].py --model model-name [resnet18/mobilenet_v3_small/custom]
 ```
 
-Analyzing complexity results, which is dumped to txt files in [`/results/complexity`](`./results/complexity/`) directory, here is my observations:
+Analyzing complexity results, which is dumped to txt files in [`/results/complexity`](./results/complexity/) directory, here is my observations:
 
 - ResNet18: 
     - There is 20 ```Conv2d``` layers, which contributes to approximately 98.734% of the network Params, and 99.45% of its MACCs. 
