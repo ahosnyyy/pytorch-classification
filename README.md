@@ -8,7 +8,7 @@
 Clone the repo and build the docker image
 
 ```Shell
-git clone
+git clone https://github.com/ahosnyyy/pytorch-classification.git
 cd pytorch-classification
 docker build --tag fashion .
 ```
