@@ -14,8 +14,6 @@ docker build --tag fashion .
 ```
 </details>
 
-<br>
-
 <details>
 <summary>Run</summary>
 
@@ -26,8 +24,6 @@ docker run -p 6006:6006 --gpus all -it -v /path/to/repo/pytorch-classification:/
 cd classification
 ```
 </details>
-
-<br>
 
 <details>
 <summary>Download Models</summary>
@@ -48,8 +44,6 @@ After downloading, move them to `/weights` directory.
 
 </details>
 
-<br>
-
 <details>
 <summary>Inference [onnx/TorchScript]</summary>
 
@@ -69,8 +63,6 @@ python3 predict.py --help
 ```
 </details>
 
-<br>
-
 <details>
 <summary>Inference [Checkpoint]</summary>
 
@@ -89,8 +81,6 @@ To see the list of available options and their descriptions, run:
 python predict_ckpoint.py --help
 ```
 </details>
-
-<br>
 
 <details>
 <summary>Evaluation</summary>
@@ -112,8 +102,6 @@ python3 eval.py --help
 ```
 
 </details>
-
-<br>
 
 <details>
 <summary>Training</summary>
@@ -156,8 +144,6 @@ Here is a table summarize the options:
 | --dataset | str | None | Path to dataset directory. The directory should contain subdirectories for each class and the images for each class should be located in their corresponding subdirectories. |
 </details>
 
-<br>
-
 <details>
 <summary>Export</summary>
 
@@ -176,8 +162,6 @@ To see the list of available options and their descriptions, run:
 python3 export.py --help
 ``` 
 </details>
-
-<br>
 
 <details>
 <summary>Quantize</summary>
