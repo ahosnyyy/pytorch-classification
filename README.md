@@ -36,13 +36,13 @@ Here are 3 models trained for 100 epochs on FashionMNIST dataset, you can downlo
 
 |Checkpoints| | |
 |----|----|---|
-| [```resnet18.pth```]() | [```mobilenet_v3_small.pth```]() | [```custom.pth```]() |
-|onnx|||
-| [```resnet18_onnx.onnx```]() | [```mobilenet_v3_small_onnx.onnx```]() | [```custom_onnx.onnx```]() |
-|torcchscript|||
-| [```resnet18_torchscript.pt```]() | [```mobilenet_v3_small_torchscript.pt```]() | [```custom_torchscript.pt```]() |
-|Quantized|||
-| [```resnet18_quantized.pth```]() | [```mobilenet_v3_small__quantized.pth```]() | [```custom_quantized.pth```]() |
+| [```resnet18.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/resnet18.pth) | [```mobilenet_v3_small.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/mobilenet_v3_small.pth) | [```custom.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/custom.pth) |
+|**ONNX**|||
+| [```resnet18_onnx.onnx```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/resnet18_onnx.onnx) | [```mobilenet_v3_small_onnx.onnx```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/mobilenet_v3_small_onnx.onnx) | [```custom_onnx.onnx```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/custom_onnx.onnx) |
+|**TorcchScript**|||
+| [```resnet18_torchscript.pt```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/resnet18_torchscript.pt) | [```mobilenet_v3_small_torchscript.pt```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/mobilenet_v3_small_torchscript.pt) | [```custom_torchscript.pt```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/custom_torchscript.pt) |
+|**Quantized**|||
+| [```resnet18_quantized.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/resnet18_quantized.pth) | [```mobilenet_v3_small__quantized.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/mobilenet_v3_small_quantized.pth) | [```custom_quantized.pth```](https://github.com/ahosnyyy/pytorch-classification/releases/download/v0.1.0/custom_quantized.pth) |
 
 After downloading, move them to `/weights` directory.
 
