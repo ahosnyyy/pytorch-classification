@@ -420,6 +420,8 @@ In a CNN, each neuron in a given layer is connected to a small region of the pre
 
 Receptive Field is defined as the window size of input voxels that affects one particular output voxel. This hyperparameter is important since it indicates the context size that the network is using in order to compute one particular output voxel.
 
+![RF](./readme/rf/rf.png)
+
 Say we have an image, we will apply **2 convolutional** layers. for each layer we need to define a kernel size and a stride. Here I used a kernel size $K=3$ and a stride $s=1$. We can see that every position in the first output depends on **3x3** input positions.
 
 Now if we apply the second convolution, each position in the final output depends on **5x5** input positions! You can imgine that adding more layers the RF will keep increasing. How can we compute it?
@@ -482,6 +484,8 @@ There are several ways to increase the receptive field in a neural network, But 
 2. Stride: The stride of the convolutional filter/kernel determines how much the filter "slides" over the input image after each convolution operation.
 
 3. Dilation: The dilation rate controls the gaps between the values in the convolutional filter/kernel, which can increase the RF. A dilation rate of `1` means no gaps between the values of the kernel, `2` means a gap of `1 pixel` is added between each two values of the kernel. To calculate the kernel size with a dilation rate we use: $$kernel\_size\_{dilation} = kernel\_size + (kernel\_size - 1) * (dilation - 1)$$
+
+![dilation](./readme/rf/dilation.png)
 
 To see the effect of these parameters on the receptive field, let's define the formula
 
