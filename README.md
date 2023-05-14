@@ -451,9 +451,9 @@ calculate_RF(layers)
 
 >> 22
 ```
-For this network ```RF=22x22```, But what if the network is very complicated, and it does not have a structred architecture? It can be really tedious to do it analitycally and sometimes just not possible. Note that we didn't accout for the **padding**, or more advanced concepts like **dilation**.
+For this network ```RF=22x22```, But what if the network is very complicated, and it does not have a structred architecture? It can be really tedious to do it analitycally and sometimes just not possible. Note that we assume a single path which means no skip connections in the architecture, we also didn't accout for the **padding**, or more advanced concepts like **dilation**.
 
-Turns out there is another way to compute this value numerically. But I didn't go through it TBH. [torchscan](https://frgfm.github.io/torch-scan/torchscan.html) provides a way to compute RF along with other details through its ```summary``` module, here is an example:
+Turns out there is another way to compute this value numerically ([paper](https://distill.pub/2019/computing-receptive-fields/)). But I didn't go through it TBH. [torchscan](https://frgfm.github.io/torch-scan/torchscan.html) provides a way to compute RF along with other details through its ```summary``` module, here is an example:
 
 ```Python
 import torch.nn as nn
@@ -488,6 +488,8 @@ To see the effect of these parameters on the receptive field, let's define the f
 $$Receptive\ Field = kernel\_size\_{dilation} + (kernel\_size\_{dilation}-1) * (stride - 1)$$
 
 which is used to calculate the effective receptive field of a convolutional neuron in a neural network.
+
+$$r_0 = \sum_{i=1}^{L} ((k_i - 1) \prod_{j=1}^{l-1} s_j) + 1$$
 
 Here is the python implementation:
 
@@ -563,7 +565,9 @@ The receptive field increased to be **```17x17```**.
 
 <br>
 
-There is also other operations can also affect the receptive field, here is some of them:
+There is also other operations can also affect the receptive field of a CNN, here is some of them:
+
+* More convolutional layers: as each extra layer increases the receptive field size by the kernel size
 
 * Pooling: Pooling operations, such as max pooling or average pooling, reduces the spatial dimensions of the input image, which can decrease the RF.
 
