@@ -440,7 +440,7 @@ def calculate_RF(layers):
     output = 1
     for k, s in reversed(layers):
         output = calculate_input(output, k, s)
-    return out
+    return output
 ```
 
 Where layers is defined as ```layers=[(k, s), ...]```, where ```k``` and ```s``` is the kernel size and stride of convolutional and pooling layers, We can use this script as follows:
@@ -451,7 +451,7 @@ calculate_RF(layers)
 
 >> 22
 ```
-For this network ```RF=22x22```, But what if the network is very complicated, and it does not have a structred architecture? It can be really tedious to do it analitycally and sometimes just not possible. Note that we didn't accout for the **padding**, or more advanced concepts like **dilation**. 
+For this network ```RF=22x22```, But what if the network is very complicated, and it does not have a structred architecture? It can be really tedious to do it analitycally and sometimes just not possible. Note that we didn't accout for the **padding**, or more advanced concepts like **dilation**.
 
 Turns out there is another way to compute this value numerically. But I didn't go through it TBH. [torchscan](https://frgfm.github.io/torch-scan/torchscan.html) provides a way to compute RF along with other details through its ```summary``` module, here is an example:
 
@@ -473,8 +473,105 @@ module_info = crawl_module(mod, (3, 224, 224))
 Note that for **MobileNetV3s** model the results of RF from torchscan is not accurate as many Module types is not supported.
 
 
----
+### Increasing Receptive Field
 
+There are several ways to increase the receptive field in a neural network, But first, let's revise Some of the key factors that can affect the receptive field (RF) of a convolutional neural network:
+
+1. Kernel size: The size of the convolutional filter/kernel used in the convolutional layer can affect the receptive field.
+
+2. Stride: The stride of the convolutional filter/kernel determines how much the filter "slides" over the input image after each convolution operation.
+
+3. Dilation: The dilation rate controls the gaps between the values in the convolutional filter/kernel, which can increase the RF. A dilation rate of `1` means no gaps between the values of the kernel, `2` means a gap of `1 pixel` is added between each two values of the kernel. To calculate the kernel size with a dilation rate we use: $$kernel\_size\_{dilation} = kernel\_size + (kernel\_size - 1) * (dilation - 1)$$
+
+To see the effect of these parameters on the receptive field, let's define the formula
+
+$$Receptive\ Field = kernel\_size\_{dilation} + (kernel\_size\_{dilation}-1) * (stride - 1)$$
+
+which is used to calculate the effective receptive field of a convolutional neuron in a neural network.
+
+Here is the python implementation:
+
+```Python
+def get_receptive_field(kernel_size, stride, dilation):
+    kernel_size_dilation = kernel_size + (kernel_size - 1) * (dilation-1)
+    return kernel_size_dilation + (kernel_size_dilation - 1) * (stride - 1)
+```
+
+Now, I will set up a base example to illustrate the different ways to increase the receptive field in a convolutional neural network. Let's assume we have a **Conv2d** layer with `kernel_size=3, stride=1, dilation=1`. Running `get_receptive_field` on this layer:
+
+<details>
+<summary>Experiment 0: kernel_size = 3, stride = 1, and dilation = 1</summary>
+
+```Python
+receptive_field = get_receptive_field(kernel_size=3, stride=1, dilation=1)
+print(receptive_field)
+
+>> 3
+```
+The base receptive field is **```3x3```**.
+</details>
+
+<br>
+
+Now, we can explore different ways to increase the receptive field in this network:
+
+**1\.** Increase the kernel size: A larger kernel size can increase the RF since it covers a larger area of the input image.
+
+<details>
+<summary>Experiment 1: kernel_size = 5, stride = 1, and dilation = 1</summary>
+
+```Python
+receptive_field = get_receptive_field(kernel_size=5, stride=1, dilation=1)
+print(receptive_field)
+
+>> 5
+```
+The receptive field increased to be **```5x5```**.
+</details>
+
+<br>
+
+**2\.** Increase the stride size: A larger stride can decrease the RF since it reduces the amount of overlap between adjacent filters. However, It reduces the spatial resolution of the output feature map.
+
+<details>
+<summary>Experiment 2: kernel_size = 5, stride = 2, and dilation = 1</summary>
+
+```Python
+receptive_field = get_receptive_field(kernel_size=5, stride=2, dilation=1)
+print(receptive_field)
+
+>> 9
+```
+The receptive field increased to be **```9x9```**.
+</details>
+
+<br>
+
+**3\.** Use dilated convolutions: A larger dilation rate can be used to increase the receptive field without increasing the number of parameters in the network. This is achieved by inserting gaps between the kernel elements, effectively increasing the kernel size without increasing the number of parameters.
+
+<details>
+<summary>Experiment 3: kernel_size = 5, stride = 2, and dilation = 2</summary>
+
+```Python
+receptive_field = get_receptive_field(kernel_size=5 stride=2, dilation=2)
+print(receptive_field)
+
+>> 17
+```
+The receptive field increased to be **```17x17```**.
+</details>
+
+<br>
+
+There is also other operations can also affect the receptive field, here is some of them:
+
+* Pooling: Pooling operations, such as max pooling or average pooling, reduces the spatial dimensions of the input image, which can decrease the RF.
+
+* Upsampling: Upsampling operations can increase the RF by increasing the spatial dimensions of the input image.
+
+<br>
+
+---
 Author: Ahmed Hosny  
 Email: ahmedhosny0094.ah@gmail.com
 
