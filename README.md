@@ -421,7 +421,9 @@ In a CNN, each neuron in a given layer is connected to a small region of the pre
 Receptive Field is defined as the window size of input voxels that affects one particular output voxel. This hyperparameter is important since it indicates the context size that the network is using in order to compute one particular output voxel.
 
 <p align="center">
-  <img src="./readme/rf/rf.png">
+<img src="./readme/rf/rf.png">  
+</p>
+<p align="center">
 Fig. Receptive Field in Neural Networks, kernel size (3x3)
 </p>
 
@@ -491,7 +493,10 @@ There are several ways to increase the receptive field in a neural network, But 
 
 
 <p align="center">
-  <img src="./readme/rf/dilation.png">
+<img src="./readme/rf/dilation.png">
+</p>
+
+<p align="center">
 Fig.  Dilated Convolution
 </p>
 
