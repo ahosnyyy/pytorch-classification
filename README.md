@@ -11,7 +11,7 @@ Clone the repo and build the docker image
 ```Shell
 git clone https://github.com/ahosnyyy/pytorch-classification.git
 cd pytorch-classification
-docker build --tag fashion .
+docker build --tag image-classifier .
 ```
 </details>
 
@@ -21,7 +21,7 @@ docker build --tag fashion .
 Run the container and mount the repo
 
 ```Shell
-docker run -p 6006:6006 --gpus all -it -v /path/to/repo/pytorch-classification:/app/classification fashion
+docker run -p 6006:6006 --gpus all -it -v /path/to/repo/pytorch-classification:/app/classification image-classifier
 cd classification
 ```
 </details>
