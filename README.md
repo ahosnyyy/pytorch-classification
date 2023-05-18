@@ -318,7 +318,7 @@ The trained model is evaluated on FashionMNIST's val set, and the results are re
 | Metric | Defention |
 |:--------:|:--------:|
 |**Size**|Model size (params + buffers)|
-|**Acc@k**|Model size (params + buffers)|
+|**Acc@k**|Top-k Accuracy classification score|
 |**Speed**|Inference speed|
 |**Params**|Number of trainable parameters|
 |**FLOPs**|Floating Point Operations on forward|
